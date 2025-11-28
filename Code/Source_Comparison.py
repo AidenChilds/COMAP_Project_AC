@@ -13,12 +13,6 @@ from scipy.optimize import curve_fit
 
 import ReadMaps
 
-
-
-
-
-
-
 def Elliptical_Gaussian(x, y, amp, centre_x, centre_y, sigma_x, sigma_y, rot, offset, grad_x, grad_y):
     """
     Function used for fitting a 2D elliptical Gaussian
@@ -600,15 +594,4 @@ class SourceComparison:
         plt.errorbar(np.arange(self.num_bands), self.band_averaged_flux_density, yerr=self.band_averaged_flux_density_error, fmt='kx', capsize=2, ecolor='dimgray')
         plt.xlabel("Band")
         plt.ylabel("Flux Density (mJy)")
-
-
-
-
-if __name__ == "__main__":
-    sc = SourceComparison(#map_info="F:/Python/COMAP Project Experience/m31/m31/per_feed/",
-                          guesses=[11.686723571112728, -0.583338777450205, 0.620139380216278, 1.9620225417491834, 1.2954254958695903, -0.032597056594073484, -0.007161902642782123],
-                          bounds=[[0, -10,-10, 0, -np.inf, -np.inf, -np.inf], [np.inf, 10, 10, np.inf, np.inf, np.inf, np.inf]])
-    
-    print(sc.coefficients)
-
 
