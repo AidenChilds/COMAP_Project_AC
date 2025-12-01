@@ -406,19 +406,19 @@ class SourceComparison:
 
         return coeff, parameter_err
 
-    def calculate_ellipticity_error(self, a, a_err, b, b_err):
+    def calculate_ellipticity_error(self, maj_ax, maj_ax_err, min_ax, min_ax_err):
         """
         Used to calculate the ellipticity and the error on the ellipticity
 
         Parameters
         ----------
-        - a:    float
-                Major axis of the ellipse (must be larger than b)
-        - a_err:    float
+        - maj_ax:    float
+                Major axis of the ellipse (must be larger than min_ax)
+        - maj_ax_err:    float
                     Error on the major axis
-        - b:    float
-                Minor axis of the ellipse (must be smaller than a)
-        - b_err:    float
+        - min_ax:    float
+                Minor axis of the ellipse (must be smaller than maj_ax)
+        - min_ax_err:    float
                     Error on the minor axis
 
         Returns
@@ -429,8 +429,8 @@ class SourceComparison:
                                 Error on the ellipticity
         """
 
-        ellipticity = (a-b)/a
-        ellipticity_error = np.sqrt(b**2*(a**-4)*a_err**2 + (a**-2)*b_err**2)
+        ellipticity = (maj_ax-min_ax)/maj_ax
+        ellipticity_error = np.sqrt(min_ax**2*(maj_ax**-4)*maj_ax_err**2 + (maj_ax**-2)*min_ax_err**2)
         return ellipticity, ellipticity_error
     
     def Spherical_Rotation(self, coord, source_loc):
