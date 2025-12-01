@@ -412,14 +412,14 @@ class SourceComparison:
 
         Parameters
         ----------
-        - maj_ax:    float
-                Major axis of the ellipse (must be larger than min_ax)
-        - maj_ax_err:    float
-                    Error on the major axis
-        - min_ax:    float
-                Minor axis of the ellipse (must be smaller than maj_ax)
-        - min_ax_err:    float
-                    Error on the minor axis
+        - maj_ax:   float
+                    Major axis of the ellipse (must be larger than min_ax)
+        - maj_ax_err:   float
+                        Error on the major axis
+        - min_ax:   float
+                    Minor axis of the ellipse (must be smaller than maj_ax)
+        - min_ax_err:   float
+                        Error on the minor axis
 
         Returns
         -------
